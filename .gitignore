@@ -1,0 +1,25 @@
+# Virtual environments
+venv/
+env/
+.venv/
+.benv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project files (опционально)
+pedsovet_articles.json
