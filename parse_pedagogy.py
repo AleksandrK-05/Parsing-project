@@ -11,7 +11,7 @@ def parse_pedsovet_articles():
     
     try:
         
-        print("🔄 Загружаем страницу...")
+        print(" Загружаем страницу...")
         response = requests.get(url, timeout=10)
         response.raise_for_status()
         
@@ -56,15 +56,15 @@ def parse_pedsovet_articles():
                     'link': link
                 })
                 
-                print(f"✅ Обработана карточка {i}: {title[:50]}...")
+                print(f" Обработана карточка {i}: {title[:50]}...")
                 
             except Exception as e:
-                print(f"❌ Ошибка в карточке {i}: {e}")
+                print(f" Ошибка в карточке {i}: {e}")
                 continue
         
         # тут вывода результата
         print("\n" + "="*60)
-        print("🎉 РЕЗУЛЬТАТЫ ПАРСИНГА:")
+        print(" РЕЗУЛЬТАТЫ ПАРСИНГА:")
         print("="*60)
         
         for article in articles_data:
@@ -82,11 +82,12 @@ def parse_pedsovet_articles():
         return articles_data
         
     except requests.RequestException as e:
-        print(f"❌ Ошибка загрузки: {e}")
+        print(f" Ошибка загрузки: {e}")
         return []
     except Exception as e:
-        print(f"❌ Общая ошибка: {e}")
+        print(f" Общая ошибка: {e}")
         return []
 
 if __name__ == "__main__":
+
     parse_pedsovet_articles()
