@@ -20,14 +20,14 @@ def parse_pedsovet_articles():
         articles_data = []
         
 
-        print("🔍 Ищем карточки статей...")
+        print(" Ищем карточки статей...")
         cards = soup.find_all('div', class_=lambda x: x and any(word in str(x) for word in ['card', 'item', 'news', 'article', 'post']))
         
         # другой поиск, если там не получилось
         if not cards:
             cards = soup.select('div[class*="card"], div[class*="item"], div[class*="news"]')
         
-        print(f"📊 Найдено карточек: {len(cards)}")
+        print(f" Найдено карточек: {len(cards)}")
         
         for i, card in enumerate(cards, 1):
             try:
@@ -68,7 +68,7 @@ def parse_pedsovet_articles():
         print("="*60)
         
         for article in articles_data:
-            print(f"📖 {article['title']}")
+            print(f" {article['title']}")
             print(f"🔗 {article['link']}")
             print()
         
@@ -76,8 +76,8 @@ def parse_pedsovet_articles():
         with open('pedsovet_articles.json', 'w', encoding='utf-8') as f:
             json.dump(articles_data, f, ensure_ascii=False, indent=2)
         
-        print(f"💾 Данные сохранены в: pedsovet_articles.json")
-        print(f"📈 Всего статей: {len(articles_data)}")
+        print(f" Данные сохранены в: pedsovet_articles.json")
+        print(f" Всего статей: {len(articles_data)}")
         
         return articles_data
         
@@ -91,3 +91,4 @@ def parse_pedsovet_articles():
 if __name__ == "__main__":
 
     parse_pedsovet_articles()
+
